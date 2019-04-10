@@ -48,7 +48,8 @@ class PostgresGrammar extends BasePostgresGrammar
      */
     public function compileDropView(Blueprint $blueprint, Fluent $command)
     {
-        return "drop view " . $this->wrapTable($blueprint);
+	$materialize = $command->materialize ? 'materialized' : '';
+        return "drop {$materialize} view " . $this->wrapTable($blueprint);
     }
 
     /**

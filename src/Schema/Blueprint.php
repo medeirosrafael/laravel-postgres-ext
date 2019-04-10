@@ -43,9 +43,9 @@ class Blueprint extends BaseBlueprint
     /**
      * @return \Illuminate\Support\Fluent
      */
-    public function dropView()
+    public function dropView($materialize = false)
     {
-        return $this->addCommand('dropView');
+        return $this->addCommand('dropView', compact('materialize'));
     }
 
     /**

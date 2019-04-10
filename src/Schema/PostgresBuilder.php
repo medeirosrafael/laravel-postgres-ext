@@ -35,11 +35,12 @@ class PostgresBuilder extends BasePostgresBuilder
      * Drops view
      *
      * @param string $view
+     * @param bool $materialize
      */
-    public function dropView($view) {
+    public function dropView($view, $materialize = false) {
         $blueprint = $this->createBlueprint($view);
 
-        $blueprint->dropView();
+        $blueprint->dropView($materialize);
 
         $this->build($blueprint);
     }
